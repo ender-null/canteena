@@ -1,3 +1,14 @@
+var showTime = 5000;
+
+function removeCard(id) {
+    console.log('removeCard', id);
+    setTimeout(() => {
+        var ul = document.getElementById("scanned");
+        var card = document.getElementById("card_" + id);
+        ul.removeChild(card);
+    }, showTime);
+}
+
 function showCard(response) {
     console.log('showCard', response);
     var ul = document.getElementById("scanned");
@@ -9,6 +20,7 @@ function showCard(response) {
     if (response.caneat === 1) {
         li.setAttribute("class", "caneat");
     }
+    li.setAttribute("id", "card_" + response.werkerid)
     id.setAttribute("class", "id");
     name.setAttribute("class", "name");
     diet.setAttribute("class", "diet");
@@ -20,6 +32,8 @@ function showCard(response) {
     li.appendChild(name);
     li.appendChild(diet);
     ul.appendChild(li);
+
+    removeCard(response.werkerid);
 }
 
 function makeRequest() {
