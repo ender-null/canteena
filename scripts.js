@@ -1,4 +1,4 @@
-var showTime = 5000;
+var showTime = 10; // seconds
 
 function removeCard(id) {
     console.log('removeCard', id);
@@ -6,7 +6,7 @@ function removeCard(id) {
         var ul = document.getElementById("scanned");
         var card = document.getElementById("card_" + id);
         ul.removeChild(card);
-    }, showTime);
+    }, showTime * 1000);
 }
 
 function showCard(response) {
@@ -31,7 +31,7 @@ function showCard(response) {
     li.appendChild(id);
     li.appendChild(name);
     li.appendChild(diet);
-    ul.appendChild(li);
+    ul.insertBefore(li, ul.childNodes[0])
 
     removeCard(response.werkerid);
 }
