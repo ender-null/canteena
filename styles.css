@@ -27,6 +27,7 @@ body {
 
 #scanned li {
     background: red;
+    margin: 10px 0;
     padding: 20px 80px;
     font-size: 48px;
     display: flex;

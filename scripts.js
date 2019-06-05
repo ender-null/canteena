@@ -26,19 +26,21 @@ function makeRequest() {
     console.log('makeRequest');
     try {
         var Http = new XMLHttpRequest();
-        var url = 'https://app.goingnowhere.org/cgi-bin/ajax/canteen.cgi?bcode=' + document.getElementById("input").value;
-        Http.open("GET", url);
+        var url = "https://app.goingnowhere.org/cgi-bin/ajax/canteen.cgi?bcode=" + document.getElementById("input").value;
+        Http.open("GET", url, false);
         Http.send();
+        showCard(JSON.parse(Http.responseText));
         document.getElementById("input").value = '';
 
-        Http.onreadystatechange = (e) => {
-            if (this.readyState == 4 && this.status == 200) {
-                showCard(JSON.parse(Http.responseText));
-            }
-        };
+        // Http.onreadystatechange = (e) => {
+        //    if (this.readyState == 4 && this.status == 200) {
+        //        showCard(JSON.parse(Http.responseText));
+        //    }
+        //};
     } catch (ex) {
         console.error(ex);
     }
+
     return false;
 }
 
