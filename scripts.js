@@ -26,7 +26,7 @@ function makeRequest() {
     console.log('makeRequest');
     try {
         var Http = new XMLHttpRequest();
-        var url = 'http://app.goingnowhere.org/cgi-bin/ajax/canteen.cgi?bcode=' + document.getElementById("input").value;
+        var url = 'https://app.goingnowhere.org/cgi-bin/ajax/canteen.cgi?bcode=' + document.getElementById("input").value;
         Http.open("GET", url);
         Http.send();
         document.getElementById("input").value = '';
